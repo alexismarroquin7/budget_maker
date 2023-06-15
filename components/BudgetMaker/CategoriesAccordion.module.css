@@ -1,0 +1,15 @@
+.expand_category_button {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.expense_category_list {
+  display: flex;
+  flex-flow: column wrap;
+  padding: 0 2rem;
+}
+
+.expense_category_list_hidden {
+  display: none;
+}
