@@ -1,0 +1,42 @@
+.expense_item {
+  padding: 2rem 0;
+  border-top: .2rem solid #eee;
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+}
+
+.expense_item_attrs {
+  display: flex;
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.edit_icon {
+  font-size: 2rem;
+  background-color: transparent;
+  border: 0;
+}
+
+.editing_container {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.editing_label {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.bottom_container {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  padding-top: 2rem;
+}

@@ -1,13 +1,50 @@
+.category_accoridion_item {
+  display: flex;
+  flex-flow: column wrap;
+  padding: 0 1rem;
+}
+
 .expand_category_button {
   display: flex;
   gap: 1rem;
   padding: 1rem;
+  background-color: transparent;
+  border: 0;
+  font-size: 2rem;
+}
+
+.expand_category_button_open {
+  font-weight: bold;
+}
+
+.expand_category_button_carrot {
+  transform: rotate(0deg);
+  transition: all .2s;
+}
+
+.expand_category_button_carrot_open {
+  transform: rotate(-180deg);
+}
+
+.category_span_container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.category_span {
+  font-weight: normal;
+  border: .2rem solid var(--blue);
+  padding: .5rem 1rem;
+  font-size: 1.6rem;
+  border-radius: 4rem;
 }
 
 .expense_category_list {
   display: flex;
   flex-flow: column wrap;
-  padding: 0 2rem;
+  padding: 2rem;
 }
 
 .expense_category_list_hidden {

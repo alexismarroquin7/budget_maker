@@ -1,6 +1,6 @@
 "use client";
 import { v4 as uuid } from "uuid";
-import { useReducer } from "react";
+import { useEffect, useReducer } from "react";
 
 const initialState = {
   income: 1000,
@@ -19,6 +19,28 @@ const reducer = (state, action) => {
         ...state,
         expenses: [...state.expenses, action.payload.newExpense]
       }
+    
+    case "update_expense_item":
+      const newExpenseList = state.expenses.map(expense => {
+        if(expense.id === action.payload.id) {
+          expense = {
+            ...expense,
+            ...action.payload.changes
+          }
+        }
+
+        return expense;
+      })
+      return {
+        ...state,
+        expenses: newExpenseList
+      }
+    
+    case "delete_expense_item":
+      return {
+        ...state,
+        expenses: state.expenses.filter((expense) => expense.id !== action.payload.id)
+      }
         
     default: throw Error(`unknown action.type: ${action.type}`);
   }
@@ -27,6 +49,10 @@ const reducer = (state, action) => {
 export const useBudgetMaker = () => {
   
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  // useEffect(() => {
+  //   console.log(state);
+  // }, [state])
 
   const setIncome = (newIncome) => {
     return dispatch({
@@ -42,7 +68,8 @@ export const useBudgetMaker = () => {
     const newExpense = {
       id: uuid(),
       name: "",
-      category: category
+      category: category,
+      amount: 0
     }
 
     return dispatch({
@@ -52,11 +79,34 @@ export const useBudgetMaker = () => {
       }
     })
   }
+  
+  const updateExpense = (id, changes) => {
+
+    return dispatch({
+      type: "update_expense_item",
+      payload: {
+        id,
+        changes
+      }
+    })
+
+  }
+
+  const deleteExpense = (id) => {
+    return dispatch({
+      type: "delete_expense_item",
+      payload: {
+        id
+      }
+    })
+  }
 
   return {
     state,
     dispatch,
     setIncome,
-    createExpense
+    createExpense,
+    updateExpense,
+    deleteExpense
   }
 }
