@@ -1,0 +1,39 @@
+.section {
+  display: flex;
+  flex-flow: column wrap;
+  border-bottom: .2rem solid #eee;
+  padding: 1rem 0;
+  border-top: .2rem solid #eee;
+}
+
+.section_button {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  font-size: 2rem;
+  gap: 1rem;
+  border: 0;
+  background-color: transparent;
+}
+
+.section_button_open {
+  font-weight: bold;
+}
+
+.carrot {
+  transform: rotate(0deg);
+  transition: all .2s;
+}
+
+.carrot_open {
+  transform: rotate(-180deg);
+}
+
+.details {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.details_hidden {
+  display: none;
+}

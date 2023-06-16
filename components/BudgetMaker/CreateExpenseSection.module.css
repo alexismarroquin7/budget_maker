@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1rem;
+}
+
+.create_expense_button {
+  padding: .5rem 1rem;
+  border-radius: 2rem;
+  border: .2rem solid black;
+  font-weight: bold;
+  color: var(--white);
+  background-color: var(--blue);
+  border-color: var(--blue);
+}

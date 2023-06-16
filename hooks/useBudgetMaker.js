@@ -1,10 +1,24 @@
 "use client";
 import { v4 as uuid } from "uuid";
-import { useEffect, useReducer } from "react";
+import { useReducer } from "react";
 
 const initialState = {
-  income: 1000,
-  expenses: []
+  income: 5000,
+  expenses: [],
+  targets: {
+    needs: {
+      amount: 5000 * .5,
+      percent: 50
+    },
+    wants: {
+      amount: 5000 * .3,
+      percent: 50
+    },
+    savings: {
+      amount: 5000 * .3,
+      percent: 50
+    },
+  }
 }
 
 const reducer = (state, action) => {
@@ -49,10 +63,6 @@ const reducer = (state, action) => {
 export const useBudgetMaker = () => {
   
   const [state, dispatch] = useReducer(reducer, initialState);
-
-  // useEffect(() => {
-  //   console.log(state);
-  // }, [state])
 
   const setIncome = (newIncome) => {
     return dispatch({

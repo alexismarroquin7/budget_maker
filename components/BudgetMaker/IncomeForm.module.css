@@ -1,0 +1,27 @@
+.form {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 1rem;
+}
+
+.label {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 1rem;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.input {
+  padding: 2rem;
+  text-align: center;
+}
+
+.submit_button {
+  padding: 1rem 4rem;
+  font-weight: bold;
+  background-color: var(--blue);
+  color: var(--white);
+  border-radius: 2rem;
+  border: .2rem solid var(--blue);
+}
