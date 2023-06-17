@@ -1,17 +1,38 @@
+import { useState } from "react";
 import { useForm } from "@/hooks"
+
+
+import {
+  Edit as EditIcon,
+  Check as CheckIcon
+} from "@mui/icons-material";
+
 import styles from "./BudgetTargetSection.module.css";
 
-export const BudgetTargetSection = ({income}) => {
+export const BudgetTargetSection = ({ income, targets, updateTargets }) => {
   
   const onSubmit = () => {
-
+    updateTargets({
+      needs: {
+        percent: Number(formValues.needs_percent),
+        amount: income * (Number(formValues.needs_percent)/100)
+      },
+      wants: {
+        percent: Number(formValues.wants_percent),
+        amount: income * (Number(formValues.wants_percent)/100)
+      },
+      savings: {
+        percent: Number(formValues.savings_percent),
+        amount: income * (Number(formValues.savings_percent)/100)
+      },
+    })
   }
   
-  const { formValues, handleChange } = useForm(
+  const { formValues, handleChange, handleSubmit } = useForm(
     {
-      needs_percent: 50,
-      wants_percent: 30,
-      savings_percent: 20
+      needs_percent: targets.needs.percent ? targets.needs.percent : null,
+      wants_percent: targets.wants.percent ? targets.wants.percent : null,
+      savings_percent: targets.savings.percent ? targets.savings.percent : null
     },
     onSubmit
   );
@@ -29,6 +50,8 @@ export const BudgetTargetSection = ({income}) => {
     details.classList.toggle(styles.details_hidden)
   }
 
+  const [editing, setEditing] = useState(false);
+
   return (
   <div
     className={styles.budget_target_section}
@@ -45,9 +68,38 @@ export const BudgetTargetSection = ({income}) => {
     </button>
 
     {/* HIDDEN BY DEFAULT */}
-    <div
+    <form
       className={`${styles.details} ${styles.details_hidden}`}
+      onSubmit={handleSubmit}
     >
+
+      <div
+        className={styles.edit_button_container}
+      >
+          {editing ? (
+          <button
+            className={styles.edit_button_icon}
+            type="submit"
+            onClick={(e) => {
+              e.preventDefault();
+              onSubmit();
+              setEditing(false);
+            }}
+          > 
+            <CheckIcon fontSize="inherit"/>
+          </button>
+          ):( 
+          <button
+            className={styles.edit_button_icon}
+            type="button"
+            onClick={() => {
+              setEditing(true);
+            }}
+          > 
+            <EditIcon fontSize="inherit"/>
+          </button>
+          )}
+      </div>
 
       <div
         className={styles.target_row}
@@ -63,6 +115,10 @@ export const BudgetTargetSection = ({income}) => {
             name="needs_percent"
             value={formValues.needs_percent}
             onChange={handleChange}
+            step={5}
+            min={0}
+            max={100}
+            disabled={!editing}
           />
         </label>
       </div>
@@ -81,6 +137,10 @@ export const BudgetTargetSection = ({income}) => {
             name="wants_percent"
             value={formValues.wants_percent}
             onChange={handleChange}
+            step={5}
+            min={0}
+            max={100}
+            disabled={!editing}
           />
         </label>
       </div>
@@ -99,11 +159,15 @@ export const BudgetTargetSection = ({income}) => {
             name="savings_percent"
             value={formValues.savings_percent}
             onChange={handleChange}
+            step={5}
+            min={0}
+            max={100}
+            disabled={!editing}
           />
         </label>
       </div>
 
-    </div>
+    </form>
 
 
 

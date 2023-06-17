@@ -1,4 +1,5 @@
 .budget_maker {
+  width: 100%;
   display: flex;
   flex-flow: column wrap;
   padding: 2rem;

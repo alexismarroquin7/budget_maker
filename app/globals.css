@@ -4,6 +4,10 @@
   --blue: #4285F4;
   --yellow: #F4B400;
   --white: #FFF;
+  --black: #000;
+  
+  --background-color-secondary: #3e3e3e;
+  --border-radius-primary: 2rem;
 }
 
 * {
@@ -16,29 +20,37 @@
 
 body {
   font-size: 1.6rem; /* 16 pixels */
+  background-color: var(--black);
+  color: var(--white);
 }
 
 h1 {
   font-size: 2.8rem; /* 28 pixels */
+  color: var(--white);
 }
 
 h2 {
+  color: var(--white);
   font-size: 2.4rem; /* 24 pixels */
 }
 
 h3 {
+  color: var(--white);
   font-size: 2.0rem; /* 20 pixels */
 }
 
 h4 {
+  color: var(--white);
   font-size: 1.8rem; /* 18 pixels */
 }
 
 h5 {
+  color: var(--white);
   font-size: 1.6rem; /* 16 pixels */
 }
 
 h6 {
+  color: var(--white);
   font-size: 1.4rem; /* 14 pixels */
 }
 
@@ -49,9 +61,17 @@ button,
 label,
 input
 {
+  color: var(--white);
   font-size: 1.6rem; /* 16 pixels */
 }
 
+input {
+  background-color: var(--background-color-secondary);
+  border: 0;
+  border-bottom: .2rem solid var(--background-color-secondary);
+}
+
 span {
+  color: var(--white);
   font-size: inherit;
 }

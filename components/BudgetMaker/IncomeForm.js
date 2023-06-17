@@ -1,50 +1,94 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "@/hooks";
 import styles from "./IncomeForm.module.css"
+import {
+  Edit as EditIcon,
+  Check as CheckIcon
+} from "@mui/icons-material";
+
 export const IncomeForm = ({ setIncome, income }) => {
-  const onSubmit = () => {
+  const [editing, setEditing] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
     setIncome(Number(formValues.income));
+    handleChange({
+      target: {
+        name: 'income',
+        value: Number(formValues.income)
+      }
+    });
+    setEditing(false);
   }
 
-  const { formValues, handleChange, handleSubmit } = useForm({income: income}, onSubmit);
+  const { formValues, handleChange } = useForm({income: income ? income : null});
 
-  useEffect(() => {
-    if(formValues.income === -1){
-      handleChange({
-        target: {
-          name: "income",
-          value: income
-        }
-      })
-    }
-  }, [formValues.income, income, handleChange])
+  const toggleEditing = () => {
+    setEditing(!editing);
+  }
 
   return (
-  <form
-    onSubmit={handleSubmit}
-    className={styles.form}
+  <div
+    className={styles.wrapper}
+  
   >
-    <label
-      className={styles.label}
-    >
-      <span>
-        INCOME
-      </span>
-      <input
-        className={styles.input}
-        type="number"
-        name="income"
-        value={formValues.income}
-        onChange={handleChange}
-        min={0}
-      />
-    </label>
-    <button
-      type="submit"
-      className={styles.submit_button}
-    >
-      Submit
-    </button>
-  </form>
+    {editing ? (
+      <form
+        onSubmit={handleSubmit}
+        className={styles.form}
+      >
+        <div
+          className={styles.card_top}
+        >
+          <label
+            className={styles.label}
+            htmlFor="income"
+          >
+            Income
+          </label>
+          <button
+            type="submit"
+            className={styles.icon_button}
+          >
+            <CheckIcon fontSize="inherit" />
+          </button>
+        </div>
+        
+        <input
+          className={styles.input}
+          id="income"
+          type="number"
+          name="income"
+          value={formValues.income}
+          onChange={handleChange}
+          min={0}
+        />
+        
+      </form>
+
+    ) : (
+      <div
+        className={styles.card}
+        >
+        <div
+          className={styles.card_top}
+        >
+          <h3
+            className={styles.card_title}
+          >Income</h3>
+          <button
+            className={styles.icon_button}
+            onClick={toggleEditing}
+          >
+            <EditIcon fontSize="inherit"/>    
+          </button>
+        </div>
+
+        <p
+          className={styles.card_bottom_text}
+        >{income}</p>
+      </div>
+    )}  
+  </div>
   )
 }

@@ -12,11 +12,11 @@ const initialState = {
     },
     wants: {
       amount: 5000 * .3,
-      percent: 50
+      percent: 30
     },
     savings: {
       amount: 5000 * .3,
-      percent: 50
+      percent: 20
     },
   }
 }
@@ -55,6 +55,16 @@ const reducer = (state, action) => {
         ...state,
         expenses: state.expenses.filter((expense) => expense.id !== action.payload.id)
       }
+      
+      case "update_targets":
+        return {
+          ...state,
+          targets: {
+            ...state.targets,
+            ...action.payload.changes
+          }
+        }
+
         
     default: throw Error(`unknown action.type: ${action.type}`);
   }
@@ -111,12 +121,22 @@ export const useBudgetMaker = () => {
     })
   }
 
+  const updateTargets = (changes) => {
+    return dispatch({
+      type: "update_targets",
+      payload: {
+        changes
+      }
+    })
+  }
+
   return {
     state,
     dispatch,
     setIncome,
     createExpense,
     updateExpense,
-    deleteExpense
+    deleteExpense,
+    updateTargets
   }
 }

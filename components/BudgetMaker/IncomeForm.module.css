@@ -1,27 +1,68 @@
-.form {
+.wrapper {
+  width: 100%;
   display: flex;
   flex-flow: column wrap;
+  align-items: center;
   gap: 1rem;
+  padding: 1rem;
+  background-color: var(--background-color-secondary);
+  border-radius: var(--border-radius-primary);
+}
+
+/* PREVIEW */
+.card {
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  background-color: var(--background-color-secondary);
+  border-radius: var(--border-radius-primary);
+}
+
+.card_top {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--background-color-secondary);
+  border-radius: var(--border-radius-primary);
+}
+
+.icon_button {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  color: var(--white);
+  background-color: transparent;
+  border: 0;
+}
+
+.card_bottom_text {
+  font-size: 4rem;
+}
+
+/* FORM */
+.form {
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
 }
 
 .label {
   display: flex;
   flex-flow: column wrap;
+  align-items: flex-start;
   gap: 1rem;
   font-size: 2rem;
   font-weight: bold;
 }
 
 .input {
-  padding: 2rem;
+  width: 100%;
   text-align: center;
-}
-
-.submit_button {
-  padding: 1rem 4rem;
-  font-weight: bold;
-  background-color: var(--blue);
-  color: var(--white);
-  border-radius: 2rem;
-  border: .2rem solid var(--blue);
+  font-size: 4rem;
+  border: 0;
+  border-bottom: .2rem solid #eee;
 }

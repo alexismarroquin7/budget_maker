@@ -4,8 +4,7 @@
 import { CategoriesAccordion } from "./CategoriesAccordion";
 
 // hooks
-import { useBudgetMaker, useForm } from "@/hooks";
-import { useEffect } from "react";
+import { useBudgetMaker } from "@/hooks";
 
 // styles
 import styles from "./index.module.css";
@@ -21,15 +20,18 @@ export const BudgetMaker = () => {
     setIncome,
     createExpense,
     updateExpense,
-    deleteExpense
+    deleteExpense,
+    updateTargets
   } = useBudgetMaker();
 
   return (
     <div
       className={styles.budget_maker}
     >
+      <h3>Budget Maker</h3>
+      
       <IncomeForm setIncome={setIncome} income={state.income}/>
-      <BudgetTargetSection income={state.income} />
+      <BudgetTargetSection income={state.income} targets={state.targets} updateTargets={updateTargets}/>
       <CreateExpenseSection createExpense={createExpense}/>
       <CategoriesAccordion state={state} updateExpense={updateExpense} deleteExpense={deleteExpense}/>
       <AnalysisSection/>

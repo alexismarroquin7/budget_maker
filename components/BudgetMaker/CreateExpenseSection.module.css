@@ -10,6 +10,6 @@
   border: .2rem solid black;
   font-weight: bold;
   color: var(--white);
-  background-color: var(--blue);
-  border-color: var(--blue);
+  background-color: var(--background-color-secondary);
+  border-color: var(--background-color-secondary);
 }

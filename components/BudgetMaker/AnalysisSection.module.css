@@ -1,9 +1,9 @@
 .section {
   display: flex;
   flex-flow: column wrap;
-  border-bottom: .2rem solid #eee;
-  padding: 1rem 0;
-  border-top: .2rem solid #eee;
+  padding: 1rem;
+  background-color: var(--background-color-secondary);
+  border-radius: var(--border-radius-primary);
 }
 
 .section_button {

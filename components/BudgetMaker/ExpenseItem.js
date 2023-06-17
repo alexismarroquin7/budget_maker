@@ -43,20 +43,35 @@ export const ExpenseItem = ({ expense, income, updateExpense, deleteExpense }) =
           className={styles.editing_container}
           onSubmit={handleSubmit}
         >
+          <div
+            className={styles.editing_container_top}
+          >
+            <button
+              className={styles.edit_icon}
+              type="submit"
+            >
+              <CheckIcon fontSize="inherit"/>
+            </button>
+          </div>
+
           <label
             className={styles.editing_label}
-          >name
+          >Name
             <input 
+              className={styles.editing_input}
               name="name"
               type="text"
               value={formValues.name}
               onChange={handleChange}
+              placeholder="Untitled"
             />
           </label>
+          
           <label
             className={styles.editing_label}
-          >amount
+          >Amount
             <input 
+              className={styles.editing_input}
               name="amount"
               type="number"
               value={formValues.amount}
@@ -65,12 +80,7 @@ export const ExpenseItem = ({ expense, income, updateExpense, deleteExpense }) =
             />
           </label>
 
-          <button
-            className={styles.edit_icon}
-            type="submit"
-          >
-            <CheckIcon fontSize="inherit"/>
-          </button>
+          
           
           <div
             className={styles.bottom_container}
@@ -90,19 +100,34 @@ export const ExpenseItem = ({ expense, income, updateExpense, deleteExpense }) =
         </form>
       ) : (
         <div
-          className={styles.expense_item_attrs}
+          className={styles.card}
         >
-          <p>{expense.name === "" ? "Untitled" : expense.name}</p>  
-          <p>${expense.amount}</p>      
-          <p>{((expense.amount / income) * 100).toFixed(2)}%</p>
-          <button
-            className={styles.edit_icon}
-            onClick={() => {
-              setEditing(!editing);
-            }}
+          <div
+            className={styles.card_top}
+          
           >
-            <EditIcon fontSize="inherit"/>
-          </button>
+            
+            <button
+              className={styles.edit_icon}
+              onClick={() => {
+                setEditing(!editing);
+              }}
+            >
+              <EditIcon fontSize="inherit"/>
+            </button>
+          </div>
+          
+          <p
+            className={styles.card_name}
+          >{expense.name === "" ? "Untitled" : expense.name}</p>  
+            
+
+          <div
+            className={styles.card_bottom}
+          >
+            <p>${expense.amount}</p>      
+            <p>{((expense.amount / income) * 100).toFixed(2)}%</p>
+          </div>
         </div>
       )}
       

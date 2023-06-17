@@ -1,10 +1,12 @@
 
 import { CategoriesAccordionRow } from "./CategoriesAccordionRow";
-
+import styles from "./CategoriesAccordion.module.css"
 export const CategoriesAccordion = ({state, updateExpense, deleteExpense}) => {
 
   return (
-    <div>
+    <div
+      className={styles.accordion}
+    >
       <CategoriesAccordionRow
         category={"needs"}
         state={state}

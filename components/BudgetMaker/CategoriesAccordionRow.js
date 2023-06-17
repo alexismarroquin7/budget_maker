@@ -47,20 +47,20 @@ export const CategoriesAccordionRow = ({state, category, updateExpense, deleteEx
     return res;
   }
 
-  const getLimitUsed = (usage, limit) => {
+  // const getLimitUsed = (usage, limit) => {
 
-    let res = "";
+  //   let res = "";
     
-    if(usage < limit) {
-      res = `Bellow Limit: ${limit - usage}`
-    } else if (usage > limit) {
-      res = `Above Limit: ${usage - limit}`
-    } else {
-      res = `At Limit: ${usage - limit}`
-    }
+  //   if(usage < limit) {
+  //     res = `Bellow Limit: ${limit - usage}`
+  //   } else if (usage > limit) {
+  //     res = `Above Limit: ${usage - limit}`
+  //   } else {
+  //     res = `At Limit: ${usage - limit}`
+  //   }
 
-    return res;
-  }
+  //   return res;
+  // }
 
   return (
     <div
@@ -74,38 +74,29 @@ export const CategoriesAccordionRow = ({state, category, updateExpense, deleteEx
         <span
           className={styles.expand_category_button_carrot}
         >V</span>
+        
         {category === "needs" && "Needs"}
         {category === "wants" && "Wants"}
         {category === "savings" && "Savings"}
+        
+        <span
+          className={styles.category_span}
+        >{getCount(category)}</span>
       </button>
       
-      {/* COUNT, SUM, PERCENT */}
+      {/* SUM, PERCENT */}
       <div
         className={styles.category_span_container}
       >
-        <span
-          className={styles.category_span}
-        >Count:{' '}
-          {getCount(category)}
-        </span>
         
         <span
           className={styles.category_span}
-        >Sum:{' '}
-          ${getSum(category, false)}
-        </span>
+        >${getSum(category, false)}</span>
         
         <span
           className={styles.category_span}
-        >Percent:{' '}
-          {getPercent(category, true)}{'%'}
-        </span>
+        >{getPercent(category, true)}{'%'}</span>
         
-        <span
-          className={styles.category_span}
-        >
-          {getLimitUsed(getSum(category), state.targets[category].amount)}
-        </span>
       </div>
       
       {/* LIST */}

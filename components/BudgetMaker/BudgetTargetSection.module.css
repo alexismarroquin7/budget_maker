@@ -1,8 +1,9 @@
 .budget_target_section {
   display: flex;
   flex-flow: column wrap;
-  border-bottom: .2rem solid #eee;
-  padding: 1rem 0;
+  padding: 2rem 1rem;
+  background-color: var(--background-color-secondary);
+  border-radius: var(--border-radius-primary);
 }
 
 .target_section_button {
@@ -35,6 +36,19 @@
 
 .details_hidden {
   display: none;
+}
+
+.edit_button_container {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+}
+
+.edit_button_icon {
+  font-size: 2rem;
+  background-color: transparent;
+  border: 0;
 }
 
 .target_row {
