@@ -1,9 +1,11 @@
 .budget_target_section {
   display: flex;
   flex-flow: column wrap;
-  padding: 2rem 1rem;
+  padding: 1rem;
   background-color: var(--background-color-secondary);
   border-radius: var(--border-radius-primary);
+  gap: 1rem;
+  
 }
 
 .target_section_button {
@@ -32,6 +34,9 @@
 .details {
   display: flex;
   flex-flow: column wrap;
+  background-color: var(--background-color-terciary);
+  padding: 1rem;
+  border-radius: var(--border-radius-primary);
 }
 
 .details_hidden {
@@ -54,10 +59,22 @@
 .target_row {
   width: 100%;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column wrap;
   align-items: center;
   justify-content: space-between;
   padding: 2rem;
+}
+
+.target_row_title {
+  width: 100%;
+}
+
+.target_row_bottom {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .target_row_percent_label {

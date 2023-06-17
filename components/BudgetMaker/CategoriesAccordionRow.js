@@ -48,15 +48,14 @@ export const CategoriesAccordionRow = ({state, category, updateExpense, deleteEx
   }
 
   // const getLimitUsed = (usage, limit) => {
-
   //   let res = "";
     
   //   if(usage < limit) {
-  //     res = `Bellow Limit: ${limit - usage}`
+  //     res = `Bellow Target`
   //   } else if (usage > limit) {
-  //     res = `Above Limit: ${usage - limit}`
+  //     res = `Above Target`
   //   } else {
-  //     res = `At Limit: ${usage - limit}`
+  //     res = `At Target`
   //   }
 
   //   return res;
@@ -82,6 +81,7 @@ export const CategoriesAccordionRow = ({state, category, updateExpense, deleteEx
         <span
           className={styles.category_span}
         >{getCount(category)}</span>
+      
       </button>
       
       {/* SUM, PERCENT */}

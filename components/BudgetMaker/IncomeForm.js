@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useForm } from "@/hooks";
 import styles from "./IncomeForm.module.css"
 import {
@@ -48,7 +48,7 @@ export const IncomeForm = ({ setIncome, income }) => {
           </label>
           <button
             type="submit"
-            className={styles.icon_button}
+            className={"icon_button"}
           >
             <CheckIcon fontSize="inherit" />
           </button>
@@ -77,7 +77,7 @@ export const IncomeForm = ({ setIncome, income }) => {
             className={styles.card_title}
           >Income</h3>
           <button
-            className={styles.icon_button}
+            className={"icon_button"}
             onClick={toggleEditing}
           >
             <EditIcon fontSize="inherit"/>    

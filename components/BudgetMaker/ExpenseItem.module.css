@@ -1,9 +1,9 @@
 .expense_item {
-  padding: 1rem 0;
   border-top: .2rem solid var(--black);
   display: flex;
   flex-flow: row wrap;
   width: 100%;
+  padding: 1rem 0;
 }
 
 .card {
@@ -13,6 +13,11 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  background-color: var(--background-color-terciary);
+  padding: 1rem;
+  border-radius: var(--border-radius-primary);
+  gap: 2rem;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .card_name {
@@ -36,6 +41,12 @@
   justify-content: space-between;
 }
 
+.card_bottom_text {
+  background-color: var(--black);
+  padding: .5rem 1rem;
+  border-radius: var(--border-radius-primary);
+}
+
 .edit_icon {
   display: flex;
   flex-flow: row wrap;
@@ -54,6 +65,10 @@
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
+  background-color: var(--background-color-terciary);
+  border-radius: var(--border-radius-primary);
+  padding: 1rem;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .editing_container_top {
@@ -74,7 +89,7 @@
 .editing_input {
   padding: 2rem;
   border-bottom: .2rem solid var(--white);
-
+  background-color: transparent;
 }
 
 .bottom_container {

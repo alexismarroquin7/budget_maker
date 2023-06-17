@@ -2,16 +2,16 @@
 
 // components
 import { CategoriesAccordion } from "./CategoriesAccordion";
+import { CreateExpenseSection } from "./CreateExpenseSection";
+import { BudgetTargetSection } from "./BudgetTargetSection";
+import { AnalysisSection } from "./AnalysisSection";
+import { IncomeForm } from "./IncomeForm";
 
 // hooks
 import { useBudgetMaker } from "@/hooks";
 
 // styles
 import styles from "./index.module.css";
-import { CreateExpenseSection } from "./CreateExpenseSection";
-import { BudgetTargetSection } from "./BudgetTargetSection";
-import { AnalysisSection } from "./AnalysisSection";
-import { IncomeForm } from "./IncomeForm";
 
 export const BudgetMaker = () => {
   
@@ -34,7 +34,7 @@ export const BudgetMaker = () => {
       <BudgetTargetSection income={state.income} targets={state.targets} updateTargets={updateTargets}/>
       <CreateExpenseSection createExpense={createExpense}/>
       <CategoriesAccordion state={state} updateExpense={updateExpense} deleteExpense={deleteExpense}/>
-      <AnalysisSection/>
+      <AnalysisSection income={state.income} expenses={state.expenses} targets={state.targets}/>
 
     </div>
   )

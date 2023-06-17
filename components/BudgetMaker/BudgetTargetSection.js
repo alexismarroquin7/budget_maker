@@ -78,7 +78,7 @@ export const BudgetTargetSection = ({ income, targets, updateTargets }) => {
       >
           {editing ? (
           <button
-            className={styles.edit_button_icon}
+            className={"icon_button"}
             type="submit"
             onClick={(e) => {
               e.preventDefault();
@@ -90,7 +90,7 @@ export const BudgetTargetSection = ({ income, targets, updateTargets }) => {
           </button>
           ):( 
           <button
-            className={styles.edit_button_icon}
+            className={"icon_button"}
             type="button"
             onClick={() => {
               setEditing(true);
@@ -104,67 +104,89 @@ export const BudgetTargetSection = ({ income, targets, updateTargets }) => {
       <div
         className={styles.target_row}
       >
-        <p>Needs</p>
-        <p>${income * (formValues.needs_percent/100)}</p>
-        <label
-          className={styles.target_row_percent_label}
+        <h3
+          className={styles.target_row_title}
+        >Needs</h3>
+
+        <div
+          className={styles.target_row_bottom}
         >
-          {formValues.needs_percent}%
-          <input
-            type="range" 
-            name="needs_percent"
-            value={formValues.needs_percent}
-            onChange={handleChange}
-            step={5}
-            min={0}
-            max={100}
-            disabled={!editing}
-          />
-        </label>
+          <p>${income * (formValues.needs_percent/100)}</p>
+          <label
+            className={styles.target_row_percent_label}
+          >
+            {formValues.needs_percent}%
+            <input
+              type="range" 
+              name="needs_percent"
+              value={formValues.needs_percent}
+              onChange={handleChange}
+              step={5}
+              min={0}
+              max={100}
+              disabled={!editing}
+            />
+          </label>
+        </div>
       </div>
       
       <div
         className={styles.target_row}
       >
-        <p>Wants</p>
-        <p>${income * (formValues.wants_percent/100)}</p>
-        <label
-          className={styles.target_row_percent_label}
+        <h3
+          className={styles.target_row_title}
+        >Wants</h3>
+         <div
+          className={styles.target_row_bottom}
         >
-          {formValues.wants_percent}%
-          <input
-            type="range" 
-            name="wants_percent"
-            value={formValues.wants_percent}
-            onChange={handleChange}
-            step={5}
-            min={0}
-            max={100}
-            disabled={!editing}
-          />
-        </label>
+          <p>${income * (formValues.wants_percent/100)}</p>
+          <label
+            className={styles.target_row_percent_label}
+          >
+            {formValues.wants_percent}%
+            <input
+              type="range" 
+              name="wants_percent"
+              value={formValues.wants_percent}
+              onChange={handleChange}
+              step={5}
+              min={0}
+              max={100}
+              disabled={!editing}
+            />
+          </label>
+        </div>
+
       </div>
       
       <div
         className={styles.target_row}
       >
-        <p>Savings</p>
-        <p>${income * (formValues.savings_percent/100)}</p>
-        <label
-          className={styles.target_row_percent_label}
+        <h3
+          className={styles.target_row_title}
+        >Savings</h3>
+
+        <div
+          className={styles.target_row_bottom}
         >
-          {formValues.savings_percent}%
-          <input
-            type="range" 
-            name="savings_percent"
-            value={formValues.savings_percent}
-            onChange={handleChange}
-            step={5}
-            min={0}
-            max={100}
-            disabled={!editing}
-          />
-        </label>
+          <p>${income * (formValues.savings_percent/100)}</p>
+          <label
+            className={styles.target_row_percent_label}
+          >
+            {formValues.savings_percent}%
+            <input
+              type="range" 
+              name="savings_percent"
+              value={formValues.savings_percent}
+              onChange={handleChange}
+              step={5}
+              min={0}
+              max={100}
+              disabled={!editing}
+            />
+          </label>
+        </div>
+
       </div>
 
     </form>

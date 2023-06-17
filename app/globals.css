@@ -1,12 +1,24 @@
 :root {
+
   --red: #DB4437;
   --green: #0F9D58;
   --blue: #4285F4;
   --yellow: #F4B400;
+
+  --red: hsl(0, 50%, 60%);
+  --green: hsl(150, 40%, 60%);
+  --blue: hsl(210, 50%, 60%);
+  --yellow: hsl(45, 60%, 60%);
+
   --white: #FFF;
   --black: #000;
+
+  --color-primary: ;
   
+  --background-color-primary: #000;
   --background-color-secondary: #3e3e3e;
+  --background-color-terciary: #4f4e4e;
+  
   --border-radius-primary: 2rem;
 }
 
@@ -71,7 +83,26 @@ input {
   border-bottom: .2rem solid var(--background-color-secondary);
 }
 
+
 span {
   color: var(--white);
   font-size: inherit;
+}
+
+.icon_button {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  border: 0;
+  padding: .5rem 1rem;
+  border-radius: 1rem;
+
+  font-size: 2rem;
+  background-color: var(--background-color-primary);
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.icon_button_primary {
+  background-color: var(--background-color-primary);
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }

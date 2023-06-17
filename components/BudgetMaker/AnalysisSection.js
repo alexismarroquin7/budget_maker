@@ -1,6 +1,6 @@
 import styles from "./AnalysisSection.module.css";
 
-export const AnalysisSection = () => {
+export const AnalysisSection = ({income, expenses, targets}) => {
   const toggleOpen = (e) => {
     const parent = e.currentTarget.parentElement
     
@@ -33,7 +33,14 @@ export const AnalysisSection = () => {
     <div
       className={`${styles.details} ${styles.details_hidden}`}
     >
-
+      <p>Total Expenses</p>
+      <p>Count: {expenses.length}</p>
+      <p>Amount: {expenses.reduce((acc,curr) => {
+        return acc + curr.amount;
+      }, 0)}</p>
+      <p>Percent: {(((expenses.reduce((acc,curr) => {
+        return acc + curr.amount;
+      }, 0)) / income) * 100).toFixed(2)}{'%'}</p>
     </div>
 
 

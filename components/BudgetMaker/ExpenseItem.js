@@ -24,13 +24,17 @@ export const ExpenseItem = ({ expense, income, updateExpense, deleteExpense }) =
   }
   
   const handleSubmit = e => {
+    
     e.preventDefault();
-    updateExpense(expense.id, {
+    const changes = {
       name: formValues.name.trim(),
       amount: Number(formValues.amount)
-    });
+    }
+    
+
+    updateExpense(expense.id, changes);
     setEditing(false);
-    setFormValues(initialFormValues);
+    setFormValues(changes);
   }
 
   return (
@@ -47,7 +51,7 @@ export const ExpenseItem = ({ expense, income, updateExpense, deleteExpense }) =
             className={styles.editing_container_top}
           >
             <button
-              className={styles.edit_icon}
+              className={"icon_button"}
               type="submit"
             >
               <CheckIcon fontSize="inherit"/>
@@ -86,7 +90,7 @@ export const ExpenseItem = ({ expense, income, updateExpense, deleteExpense }) =
             className={styles.bottom_container}
           >
             <button
-              className={styles.edit_icon}
+              className={"icon_button"}
               type="button"
               onClick={() => {
                 deleteExpense(expense.id);
@@ -108,7 +112,7 @@ export const ExpenseItem = ({ expense, income, updateExpense, deleteExpense }) =
           >
             
             <button
-              className={styles.edit_icon}
+              className={"icon_button"}
               onClick={() => {
                 setEditing(!editing);
               }}
@@ -125,8 +129,8 @@ export const ExpenseItem = ({ expense, income, updateExpense, deleteExpense }) =
           <div
             className={styles.card_bottom}
           >
-            <p>${expense.amount}</p>      
-            <p>{((expense.amount / income) * 100).toFixed(2)}%</p>
+            <p className={`${styles.card_bottom_text} ${styles.amount}`}>${expense.amount}</p>   
+            <p className={`${styles.card_bottom_text} ${styles.percent}`}>{((expense.amount / income) * 100).toFixed(2)}%</p>
           </div>
         </div>
       )}
