@@ -130,6 +130,12 @@ export const useBudgetMaker = () => {
     })
   }
 
+  const getExpensesSum = () => {
+    let amount_sum = 0;
+    
+
+  }
+
   return {
     state,
     dispatch,
