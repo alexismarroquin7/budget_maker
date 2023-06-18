@@ -25,7 +25,7 @@ export const AnalysisSection = ({income, expenses, targets}) => {
     >
       <span
         className={styles.carrot}
-      >V</span>
+      >v</span>
       Analysis
     </button>
 
@@ -33,18 +33,28 @@ export const AnalysisSection = ({income, expenses, targets}) => {
     <div
       className={`${styles.details} ${styles.details_hidden}`}
     >
-      <p>Total Expenses</p>
-      <p>Count: {expenses.length}</p>
-      <p>Amount: {expenses.reduce((acc,curr) => {
-        return acc + curr.amount;
-      }, 0)}</p>
-      <p>Percent: {(((expenses.reduce((acc,curr) => {
-        return acc + curr.amount;
-      }, 0)) / income) * 100).toFixed(2)}{'%'}</p>
+      <div
+        className={`${styles.card}`}   
+      >
+        <h4>Total Expenses</h4>
+        <p>Count: {expenses.length}</p>
+        <p>Amount: {expenses.reduce((acc,curr) => {
+          return acc + curr.amount;
+        }, 0)}</p>
+        <p>Percent: {(((expenses.reduce((acc,curr) => {
+          return acc + curr.amount;
+        }, 0)) / income) * 100).toFixed(2)}{'%'}</p>
+      
+        <div
+          className={styles.income_bar}
+        >
+          
+        </div>
+      
+      </div>
+
+
     </div>
-
-
-
   </div>
   )
 }

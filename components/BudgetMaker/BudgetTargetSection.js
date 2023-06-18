@@ -63,7 +63,7 @@ export const BudgetTargetSection = ({ income, targets, updateTargets }) => {
     >
       <span
         className={styles.carrot}
-      >V</span>
+      >v</span>
       Targets
     </button>
 

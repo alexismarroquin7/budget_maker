@@ -4,6 +4,7 @@
   padding: 1rem;
   background-color: var(--background-color-secondary);
   border-radius: var(--border-radius-primary);
+  gap: 2rem;
 }
 
 .section_button {
@@ -32,6 +33,9 @@
 .details {
   display: flex;
   flex-flow: column wrap;
+  background-color: var(--background-color-terciary);  
+  padding: 2rem;
+  border-radius: var(--border-radius-primary);
 }
 
 .details_hidden {

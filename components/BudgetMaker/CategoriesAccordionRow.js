@@ -72,7 +72,7 @@ export const CategoriesAccordionRow = ({state, category, updateExpense, deleteEx
       >
         <span
           className={styles.expand_category_button_carrot}
-        >V</span>
+        >v</span>
         
         {category === "needs" && "Needs"}
         {category === "wants" && "Wants"}
