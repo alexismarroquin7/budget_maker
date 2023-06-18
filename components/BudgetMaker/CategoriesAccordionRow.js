@@ -1,7 +1,7 @@
 import { ExpenseItem } from "./ExpenseItem";
 import styles from "./CategoriesAccordionRow.module.css";
 
-export const CategoriesAccordionRow = ({state, category, updateExpense, deleteExpense}) => {
+export const CategoriesAccordionRow = ({state, category, updateExpense, deleteExpense, getExpenseCategorySum}) => {
 
   const toggleOpen = (e) => {
     const parent = e.currentTarget.parentElement;
@@ -19,47 +19,6 @@ export const CategoriesAccordionRow = ({state, category, updateExpense, deleteEx
   const getCount = (category) => {
     return state.expenses.filter(expense => expense.category === category).length;
   }
-
-  const getSum = (category, format = false) => {
-    let sum = state.expenses
-    .filter(expense => expense.category === category)
-    .reduce((acc, curr) => {
-      return acc += curr.amount;
-    }, 0);
-
-    if (format) {
-      sum = sum.toFixed(2);
-    }
-
-    return sum;
-  }
-
-  const getPercent = (category, format) => {
-    
-    
-    const sum = getSum(category);
-    let res = (sum / state.income) * 100;
-    
-    if (format) {
-      res = res.toFixed(2);
-    }
-
-    return res;
-  }
-
-  // const getLimitUsed = (usage, limit) => {
-  //   let res = "";
-    
-  //   if(usage < limit) {
-  //     res = `Bellow Target`
-  //   } else if (usage > limit) {
-  //     res = `Above Target`
-  //   } else {
-  //     res = `At Target`
-  //   }
-
-  //   return res;
-  // }
 
   return (
     <div
@@ -91,11 +50,11 @@ export const CategoriesAccordionRow = ({state, category, updateExpense, deleteEx
         
         <span
           className={styles.category_span}
-        >${getSum(category, false)}</span>
+        >${getExpenseCategorySum(category).amount}</span>
         
         <span
           className={styles.category_span}
-        >{getPercent(category, true)}{'%'}</span>
+        >{getExpenseCategorySum(category).percent}{'%'}</span>
         
       </div>
       

@@ -21,7 +21,8 @@ export const BudgetMaker = () => {
     createExpense,
     updateExpense,
     deleteExpense,
-    updateTargets
+    updateTargets,
+    getExpenseCategorySum
   } = useBudgetMaker();
 
   return (
@@ -30,11 +31,33 @@ export const BudgetMaker = () => {
     >
       <h3>Budget Maker</h3>
       
-      <IncomeForm setIncome={setIncome} income={state.income}/>
-      <BudgetTargetSection income={state.income} targets={state.targets} updateTargets={updateTargets}/>
-      <CreateExpenseSection createExpense={createExpense}/>
-      <CategoriesAccordion state={state} updateExpense={updateExpense} deleteExpense={deleteExpense}/>
-      <AnalysisSection income={state.income} expenses={state.expenses} targets={state.targets}/>
+      <IncomeForm 
+        income={state.income}
+        setIncome={setIncome} 
+      />
+
+      <BudgetTargetSection 
+        income={state.income}
+        targets={state.targets}
+        updateTargets={updateTargets}
+      />
+      
+      <CreateExpenseSection 
+        createExpense={createExpense}
+      />
+      
+      <CategoriesAccordion 
+        state={state}
+        updateExpense={updateExpense}
+        deleteExpense={deleteExpense}
+        getExpenseCategorySum={getExpenseCategorySum}
+      />
+      
+      <AnalysisSection
+        income={state.income}
+        expenses={state.expenses}
+        targets={state.targets}
+      />
 
     </div>
   )

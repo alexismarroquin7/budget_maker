@@ -130,7 +130,7 @@ export const ExpenseItem = ({ expense, income, updateExpense, deleteExpense }) =
             className={styles.card_bottom}
           >
             <p className={`${styles.card_bottom_text} ${styles.amount}`}>${expense.amount}</p>   
-            <p className={`${styles.card_bottom_text} ${styles.percent}`}>{((expense.amount / income) * 100).toFixed(2)}%</p>
+            <p className={`${styles.card_bottom_text} ${styles.percent}`}>{((expense.amount / income) * 100)}%</p>
           </div>
         </div>
       )}

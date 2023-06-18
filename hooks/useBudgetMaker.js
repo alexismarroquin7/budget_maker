@@ -18,6 +18,11 @@ const initialState = {
       amount: 5000 * .3,
       percent: 20
     },
+  },
+  view: {
+    groupBy: 'category',
+    order: 'asc',
+    sortBy: 'amount'
   }
 }
 
@@ -56,14 +61,14 @@ const reducer = (state, action) => {
         expenses: state.expenses.filter((expense) => expense.id !== action.payload.id)
       }
       
-      case "update_targets":
-        return {
-          ...state,
-          targets: {
-            ...state.targets,
-            ...action.payload.changes
-          }
+    case "update_targets":
+      return {
+        ...state,
+        targets: {
+          ...state.targets,
+          ...action.payload.changes
         }
+      }
 
         
     default: throw Error(`unknown action.type: ${action.type}`);
@@ -130,12 +135,29 @@ export const useBudgetMaker = () => {
     })
   }
 
-  const getExpensesSum = () => {
-    let amount_sum = 0;
+  const getExpenseCategorySum = (category) => {
+    const validCategories = new Set(['needs', 'wants', 'savings']);
     
+    if (!validCategories.has(category)) {
+      throw Error(`unkown category: ${category}`);
+    }
 
+    let sum = {
+      amount: 0,
+      percent: 0
+    }
+
+    state.expenses
+    .forEach(expense => {
+      if(expense.category === category){
+        sum.amount += expense.amount;
+        sum.percent += ((expense.amount / state.income) * 100);
+      }
+    })
+
+    return sum;
   }
-
+  
   return {
     state,
     dispatch,
@@ -143,6 +165,7 @@ export const useBudgetMaker = () => {
     createExpense,
     updateExpense,
     deleteExpense,
-    updateTargets
+    updateTargets,
+    getExpenseCategorySum
   }
 }
