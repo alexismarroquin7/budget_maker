@@ -6,7 +6,7 @@
 
 .create_expense_button {
   padding: .5rem 1rem;
-  border-radius: 2rem;
+  border-radius: var(--border-radius-primary);
   border: .2rem solid black;
   font-weight: bold;
   color: var(--white);

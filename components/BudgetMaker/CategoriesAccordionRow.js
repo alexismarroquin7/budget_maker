@@ -9,11 +9,16 @@ export const CategoriesAccordionRow = ({state, category, updateExpense, deleteEx
     const expense_category_list = parent.querySelector(`.${styles.expense_category_list}`);
     expense_category_list.classList.toggle(styles.expense_category_list_hidden);
     
-    const carrot = parent.querySelector(`.${styles.expand_category_button_carrot}`);
-    carrot.classList.toggle(styles.expand_category_button_carrot_open);
+    const arrow = parent.querySelector(`.${styles.more_button_arrow}`);
+    arrow.classList.toggle(styles.more_button_arrow_open);
     
-    const button = parent.querySelector(`.${styles.expand_category_button}`);
-    button.classList.toggle(styles.expand_category_button_open);
+    const button = parent.querySelector(`.${styles.more_button}`);
+    button.classList.toggle(styles.more_button_open);
+    
+    const button_text = parent.querySelector(`.${styles.more_button_text}`);
+    button_text.classList.toggle(styles.more_button_text_open);
+
+
   }
 
   const getCount = (category) => {
@@ -22,41 +27,45 @@ export const CategoriesAccordionRow = ({state, category, updateExpense, deleteEx
 
   return (
     <div
-      className={styles.row}
+      className={styles.card}
     >
       {/* OPEN/CLOSE BUTTON */}
       <button
-        className={styles.expand_category_button}
+        className={styles.more_button}
         onClick={toggleOpen}
       >
-        <span
-          className={styles.expand_category_button_carrot}
-        >v</span>
+        <h3
+          className={styles.more_button_text}
+        >
+          <span
+            className={styles.more_button_arrow}
+          >v</span>
+          {category === "needs" && "Needs"}
+          {category === "wants" && "Wants"}
+          {category === "savings" && "Savings"}
+          <span
+            className={`${styles.category_span} ${styles.count}`}
+          >{getCount(category)}</span>  
+        </h3>
         
-        {category === "needs" && "Needs"}
-        {category === "wants" && "Wants"}
-        {category === "savings" && "Savings"}
-        
-        <span
-          className={styles.category_span}
-        >{getCount(category)}</span>
+        <div
+          className={styles.right_container}
+        > 
+          <span
+            className={`${styles.category_span} ${styles.amount}`}
+          >${getExpenseCategorySum(category).amount.toFixed(2)}</span>
+          
+          <span
+            className={`${styles.category_span} ${styles.percent}`}
+          >{getExpenseCategorySum(category).percent.toFixed(2)}{'%'}</span>
+          
+        </div>
+      
+
       
       </button>
       
       {/* SUM, PERCENT */}
-      <div
-        className={styles.category_span_container}
-      >
-        
-        <span
-          className={styles.category_span}
-        >${getExpenseCategorySum(category).amount}</span>
-        
-        <span
-          className={styles.category_span}
-        >{getExpenseCategorySum(category).percent}{'%'}</span>
-        
-      </div>
       
       {/* LIST */}
       <div className={`${styles.expense_category_list} ${styles.expense_category_list_hidden}`}>

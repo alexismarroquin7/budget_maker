@@ -6,6 +6,7 @@ import { CreateExpenseSection } from "./CreateExpenseSection";
 import { BudgetTargetSection } from "./BudgetTargetSection";
 import { AnalysisSection } from "./AnalysisSection";
 import { IncomeForm } from "./IncomeForm";
+import { FiltersMenu } from "./FiltersMenu";
 
 // hooks
 import { useBudgetMaker } from "@/hooks";
@@ -41,6 +42,8 @@ export const BudgetMaker = () => {
         targets={state.targets}
         updateTargets={updateTargets}
       />
+
+      <FiltersMenu />
       
       <CreateExpenseSection 
         createExpense={createExpense}
