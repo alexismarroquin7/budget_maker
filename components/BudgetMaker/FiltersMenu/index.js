@@ -1,7 +1,8 @@
 import { useState } from "react";
 
 import {
-  FilterList as FilterListIcon
+  FilterList as FilterListIcon,
+  Close as CloseIcon
 } from '@mui/icons-material';
 
 import styles from "./index.module.css";
@@ -28,7 +29,7 @@ export const FiltersMenu = () => {
         className={`${styles.menu} ${open ? "" : styles.menu_hidden}`}
         onClick={(e) => {
           if(!e.currentTarget.classList.contains(styles.menu_hidden)) {
-            e.currentTarget.classList.toggle(styles.menu_hidden);
+            toggleOpen();
           }
         }}
       >
@@ -39,7 +40,16 @@ export const FiltersMenu = () => {
             e.stopPropagation();
           }}
         >
-          <h3>Filters</h3>
+          <div
+            className={`${styles.menu_card_top}`}
+          >
+            <h3>Filters</h3>
+            <button className="icon_button"
+              onClick={toggleOpen}
+            >
+              <CloseIcon fontSize="inherit"/>
+            </button>
+          </div>
 
           <label
             className={`${styles.label}`}
@@ -49,9 +59,34 @@ export const FiltersMenu = () => {
             <select
               className={`${styles.select}`}
             >
-              <option>--select--</option>
-              <option>expense</option>
-              <option>category</option>
+              <option>Category</option>
+              <option>All</option>
+            </select>
+          
+          </label>
+          
+          <label
+            className={`${styles.label}`}
+          >
+            Sort Order
+            <select
+              className={`${styles.select}`}
+            >
+              <option>Ascending</option>
+              <option>Descending</option>
+            </select>
+          
+          </label>
+          
+          <label
+            className={`${styles.label}`}
+          >
+            Sort By
+            <select
+              className={`${styles.select}`}
+            >
+              <option>Amount</option>
+              <option>Name</option>
             </select>
           
           </label>

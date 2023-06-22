@@ -1,4 +1,9 @@
-.filters_button {
+.container {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.menu_button {
   padding: .5rem 1rem;
   border-radius: var(--border-radius-primary);
   border: .2rem solid black;
@@ -12,7 +17,6 @@
   align-items: center;
   gap: 1rem;
 }
-
 
 .menu {
   position: absolute;
@@ -60,16 +64,59 @@
   justify-content: space-between;
 }
 
-.label {
+.menu_card_options {
   width: 100%;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column wrap;
   align-items: center;
-  justify-content: space-between;
+  gap: 1rem;
 }
 
-.select {
+.menu_card_actions {
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.menu_card_action_button,
+.option_button {
+  width: 100%;
+  padding: 1rem;
+  font-size: 2rem;
+  border-radius: var(--border-radius-primary);
+  border: .2rem solid black;
+  font-weight: bold;
+  color: var(--white);
   background-color: var(--background-color-secondary);
+  border-color: var(--background-color-secondary);
+  display: flex;
+  flex-flow: row wrap;
+  /* justify-content: space-between; */
+  align-items: center;
+  gap: 1rem;
+}
+
+.option_button_count {
+  background-color: var(--red);
   padding: .5rem 1rem;
   border-radius: var(--border-radius-primary);
 }
+
+.menu_card_action_button {
+  background-color: var(--green);
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  border: .2rem solid var(--green);
+  background-color: var(--green);
+}
+
+.menu_card_action_button.secondary {
+  color: var(--red);
+  background-color: transparent;
+  border-color: var(--red);
+}
+

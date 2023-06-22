@@ -39,6 +39,12 @@ const reducer = (state, action) => {
         expenses: [...state.expenses, action.payload.newExpense]
       }
     
+    case "create_expense_items":
+      return {
+        ...state,
+        expenses: [...state.expenses, ...action.payload.newExpenses]
+      }
+    
     case "update_expense_item":
       const newExpenseList = state.expenses.map(expense => {
         if(expense.id === action.payload.id) {
@@ -104,6 +110,60 @@ export const useBudgetMaker = () => {
       }
     })
   }
+
+  const createExpenses = ({needs, wants, savings}) => {
+
+    const total = needs + wants + savings;
+
+    const newExpenses = [];
+
+    
+    for (let i = 0; i < total; i++){
+      const newExpense = {
+        id: uuid(),
+        name: "",
+        // category: "needs" || "wants" || "savings"
+        amount: 0
+      }
+
+      if(needs > 0) {
+        
+        newExpenses.push({
+          ...newExpense,
+          category: "needs"
+        });
+        needs--;
+      }
+      
+      if(wants > 0) {
+        
+        newExpenses.push({
+          ...newExpense,
+          category: "wants"
+        });
+        wants--;
+      }
+      
+      if(savings > 0) {
+        
+        newExpenses.push({
+          ...newExpense,
+          category: "savings"
+        });
+        savings--;
+      }
+      
+
+    }
+
+
+    return dispatch({
+      type: "create_expense_items",
+      payload: {
+        newExpenses
+      }
+    })
+  }
   
   const updateExpense = (id, changes) => {
 
@@ -163,6 +223,7 @@ export const useBudgetMaker = () => {
     dispatch,
     setIncome,
     createExpense,
+    createExpenses,
     updateExpense,
     deleteExpense,
     updateTargets,

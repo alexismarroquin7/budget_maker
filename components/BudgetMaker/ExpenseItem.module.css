@@ -1,5 +1,5 @@
 .expense_item {
-  border-top: .2rem solid var(--black);
+  /* border-top: .2rem solid var(--background-color-terciary); */
   display: flex;
   flex-flow: row wrap;
   width: 100%;
@@ -7,30 +7,44 @@
 }
 
 .card {
+  width: 100%;
   display: flex;
   flex-flow: column wrap;
-  width: 100%;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  
   background-color: var(--background-color-terciary);
-  padding: 1rem;
-  border-radius: var(--border-radius-primary);
-  gap: 2rem;
+  
+  gap: 1rem;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0 2px 0px;
+
+  
+  border-radius: var(--border-radius-primary);
+  padding: 1rem;
 }
 
-.card_name {
-  width: 100%;
-  text-align: left;
-}
 
 .card_top {
   width: 100%;
   display: flex;
   flex-flow: row wrap;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
+}
+
+.card_name {
+  width: 50%;
+  text-align: left;
+}
+
+.card_middle {
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
 .card_bottom {
@@ -41,10 +55,22 @@
   justify-content: space-between;
 }
 
-.card_bottom_text {
+.card_middle_text {
+  /* width: 100%; */
+  font-size: 2rem;
   background-color: var(--black);
   padding: .5rem 1rem;
   border-radius: var(--border-radius-primary);
+  font-weight: bold;
+  text-align: right;
+}
+
+.card_middle_text.percent {
+  background-color: var(--blue);
+}
+
+.card_middle_text.amount {
+  background-color: var(--green);
 }
 
 .edit_icon {
@@ -58,7 +84,7 @@
   border-radius: 1rem;
 }
 
-.editing_container {
+.form {
   width: 100%;
   display: flex;
   flex-flow: column wrap;
@@ -71,28 +97,53 @@
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
-.editing_container_top {
+.form_top {
   width: 100%;
   display: flex;
   flex-flow: row wrap;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
 }
 
-.editing_label {
+.form_middle {
   width: 100%;
   display: flex;
   flex-flow: column wrap;
+  justify-content: space-between;
+  align-items: center;
   gap: 1rem;
 }
 
-.editing_input {
+.label {
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  gap: .5rem;
+  background-color: var(--background-color-secondary);
+  padding: 2rem;
+  border-radius: var(--border-radius-primary);
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.input {
+  width: 100%;
   padding: 2rem;
   border-bottom: .2rem solid var(--white);
   background-color: transparent;
 }
 
-.bottom_container {
+.input.amount {
+  caret-color: transparent;
+  pointer-events: none;
+}
+
+.input[name="amount"] {
+  text-align: right;
+  font-size: 4rem;
+}
+
+.form_bottom {
   width: 100%;
   display: flex;
   flex-flow: row wrap;

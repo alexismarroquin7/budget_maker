@@ -58,14 +58,10 @@ export const CategoriesAccordionRow = ({state, category, updateExpense, deleteEx
           <span
             className={`${styles.category_span} ${styles.percent}`}
           >{getExpenseCategorySum(category).percent.toFixed(2)}{'%'}</span>
-          
+              
         </div>
-      
 
-      
       </button>
-      
-      {/* SUM, PERCENT */}
       
       {/* LIST */}
       <div className={`${styles.expense_category_list} ${styles.expense_category_list_hidden}`}>

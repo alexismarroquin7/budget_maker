@@ -2,11 +2,11 @@
 
 // components
 import { CategoriesAccordion } from "./CategoriesAccordion";
-import { CreateExpenseSection } from "./CreateExpenseSection";
-import { BudgetTargetSection } from "./BudgetTargetSection";
+import { Targets } from "./Targets";
 import { AnalysisSection } from "./AnalysisSection";
-import { IncomeForm } from "./IncomeForm";
+import { Income } from "./Income";
 import { FiltersMenu } from "./FiltersMenu";
+import { CreateExpenseMenu } from "./CreateExpenseMenu";
 
 // hooks
 import { useBudgetMaker } from "@/hooks";
@@ -19,7 +19,7 @@ export const BudgetMaker = () => {
   const {
     state,
     setIncome,
-    createExpense,
+    createExpenses,
     updateExpense,
     deleteExpense,
     updateTargets,
@@ -30,14 +30,14 @@ export const BudgetMaker = () => {
     <div
       className={styles.budget_maker}
     >
-      <h3>Budget Maker</h3>
+      <h1>Budget Maker</h1>
       
-      <IncomeForm 
+      <Income 
         income={state.income}
         setIncome={setIncome} 
       />
 
-      <BudgetTargetSection 
+      <Targets 
         income={state.income}
         targets={state.targets}
         updateTargets={updateTargets}
@@ -45,8 +45,8 @@ export const BudgetMaker = () => {
 
       <FiltersMenu />
       
-      <CreateExpenseSection 
-        createExpense={createExpense}
+      <CreateExpenseMenu
+        createExpenses={createExpenses}
       />
       
       <CategoriesAccordion 

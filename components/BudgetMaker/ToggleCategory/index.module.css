@@ -1,0 +1,120 @@
+.toggle_category {
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  padding: 1rem;
+  background: var(--background-color-secondary);
+  border-radius: var(--border-radius-primary);
+  gap: 1rem;
+}
+
+.top_row {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+.top_left_row {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.bottom_row {
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.count,
+.percent,
+.amount {
+  border: 0;
+  padding: .5rem 1rem;
+  font-size: 2rem;
+  font-size: bold;
+  background-color: black;
+  border-radius: var(--border-radius-primary);
+  font-weight: bold;
+}
+
+.count {
+  background-color: var(--red);
+}
+.percent {
+  background-color: var(--blue);
+}
+.amount {
+  text-align: right;
+  background-color: var(--green);
+}
+
+.toggle_category_button {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background-color: transparent;
+  border: 0;
+  font-size: 2rem;
+}
+
+.toggle_category_button_open {
+  font-weight: bold;
+}
+
+.toggle_category_arrow {
+  transform: rotate(0deg);
+  transition: all .2s;
+  font-size: 2rem;
+}
+
+.toggle_category_arrow_open {
+  transform: rotate(-180deg);
+}
+
+.category_span {
+  font-weight: bold;
+  border: .2rem solid var(--background-color-secondary);
+  background-color: var(--black);
+  padding: .5rem 1rem;
+  font-size: 1.6rem;
+  border-radius: 4rem;
+  text-align: right;
+}
+
+.category_span.count {
+  background-color: var(--red);
+}
+.category_span.amount {
+  background-color: var(--green);
+}
+.category_span.percent {
+  background-color: var(--blue);
+}
+.category_span.amount,
+.category_span.percent {
+  width: fit-content;
+}
+
+.expense_category_list {
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.expense_category_list_hidden {
+  display: none;
+}
+
+.empty_list_text {
+  color: #9e9e9e;
+}

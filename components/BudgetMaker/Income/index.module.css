@@ -1,14 +1,3 @@
-.wrapper {
-  width: 100%;
-  display: flex;
-  flex-flow: column wrap;
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem;
-  background-color: var(--background-color-secondary);
-  border-radius: var(--border-radius-primary);
-}
-
 /* PREVIEW */
 .card {
   width: 100%;
@@ -17,29 +6,36 @@
   align-items: center;
   background-color: var(--background-color-secondary);
   border-radius: var(--border-radius-primary);
+  padding: 1rem;
 }
 
-.card_top {
+.card_button {
   width: 100%;
+  background-color: transparent;
+  border: 0;
+  font-size: 2rem;
+  font-weight: normal;
   display: flex;
   flex-flow: row wrap;
   align-items: center;
-  justify-content: space-between;
-  background-color: var(--background-color-secondary);
-  border-radius: var(--border-radius-primary);
+  gap: 1rem;
 }
 
-.icon_button {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  color: var(--white);
-  background-color: transparent;
-  border: 0;
+.card_button_open {
+  font-weight: bold;
+}
+
+.card_button_icon {
+  transition: all .2s;
+}
+
+.card_button_icon_open {
+  transform: rotate(-180deg);
 }
 
 .card_bottom_text {
   font-size: 4rem;
+  font-weight: bold;
 }
 
 /* FORM */
@@ -48,6 +44,7 @@
   display: flex;
   flex-flow: column wrap;
   align-items: center;
+  gap: 1rem;
 }
 
 .label {
@@ -65,4 +62,20 @@
   font-size: 4rem;
   border: 0;
   border-bottom: .2rem solid #eee;
+  padding: 1rem;
+}
+
+.form_button {
+  width: 100%;
+  font-size: 2rem;
+  padding: 1rem 2rem;
+  background-color: var(--background-color-primary);
+  border: .2rem solid var(--background-color-primary);
+  border-radius: var(--border-radius-primary);
+  font-weight: bold;
+}
+
+.form_button.secondary {
+  background-color: transparent;
+  color: var(--background-color-primary)
 }

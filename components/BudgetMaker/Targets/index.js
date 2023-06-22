@@ -1,15 +1,14 @@
 import { useState } from "react";
 import { useForm } from "@/hooks"
 
-
 import {
   Edit as EditIcon,
   Check as CheckIcon
 } from "@mui/icons-material";
 
-import styles from "./BudgetTargetSection.module.css";
+import styles from "./index.module.css";
 
-export const BudgetTargetSection = ({ income, targets, updateTargets }) => {
+export const Targets = ({ income, targets, updateTargets }) => {
   
   const onSubmit = () => {
     updateTargets({
