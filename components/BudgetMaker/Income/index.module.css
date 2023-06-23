@@ -1,16 +1,20 @@
 /* PREVIEW */
-.card {
+
+.card_top {
   width: 100%;
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: row wrap;
   align-items: center;
-  background-color: var(--background-color-secondary);
-  border-radius: var(--border-radius-primary);
-  padding: 1rem;
+  justify-content: space-between;
+}
+
+.card_top_left {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: flex-start;
 }
 
 .card_button {
-  width: 100%;
   background-color: transparent;
   border: 0;
   font-size: 2rem;
@@ -27,6 +31,8 @@
 
 .card_button_icon {
   transition: all .2s;
+  font-size: 2rem;
+  color: black;
 }
 
 .card_button_icon_open {
@@ -34,7 +40,7 @@
 }
 
 .card_bottom_text {
-  font-size: 4rem;
+  font-size: 2rem;
   font-weight: bold;
 }
 
@@ -59,7 +65,7 @@
 .input {
   width: 100%;
   text-align: center;
-  font-size: 4rem;
+  font-size: 2rem;
   border: 0;
   border-bottom: .2rem solid #eee;
   padding: 1rem;

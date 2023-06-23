@@ -1,6 +1,6 @@
-import styles from "./AnalysisSection.module.css";
+import styles from "./index.module.css";
 
-export const AnalysisSection = ({income, expenses, targets}) => {
+export const Analysis = ({income, expenses, targets}) => {
   const toggleOpen = (e) => {
     const parent = e.currentTarget.parentElement
     

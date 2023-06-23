@@ -30,23 +30,37 @@ export const Income = ({ setIncome, income }) => {
   return (
   
   <div
-    className={styles.card}
+    className={"card"}
   >
-    <button
-      className={`${styles.card_button} ${open ? styles.card_button_open : "" }`}
-      onClick={toggleOpen}
+    <div
+      className={styles.card_top}
     >
-      <KeyboardArrowDownIcon
-        fontSize="inherit"
-        className={`${styles.card_button_icon} ${open ? styles.card_button_icon_open : "" }`}
-      />
-      Income
-    </button>
+      <div
+        className={styles.card_top_left}
+      >
+        <p>
+          Income
+        </p>
+        <p
+          className={styles.card_bottom_text}
+        >${formatCurrency(income)}</p>
+      </div>
+
+      <button
+        className={`${styles.card_button} ${open ? styles.card_button_open : "" }`}
+        onClick={toggleOpen}
+      >
+        <KeyboardArrowDownIcon
+          fontSize="inherit"
+          className={`${styles.card_button_icon} ${open ? styles.card_button_icon_open : "" }`}
+        />
+      </button>
+    </div>
     
-    {open ? (
+    {open && (
       <form
-        onSubmit={handleSubmit}
-        className={styles.form}
+      onSubmit={handleSubmit}
+      className={styles.form}
       >
         <input
           className={styles.input}
@@ -75,12 +89,6 @@ export const Income = ({ setIncome, income }) => {
         >Cancel</button>
 
       </form>
-    ) : (
-      <div>
-        <p
-          className={styles.card_bottom_text}
-        >${formatCurrency(income)}</p>
-      </div>
     )}
   </div>
   )

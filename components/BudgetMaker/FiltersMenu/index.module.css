@@ -1,21 +1,13 @@
 .filters_button {
-  padding: .5rem 1rem;
-  border-radius: var(--border-radius-primary);
-  border: .2rem solid black;
-  font-weight: bold;
-  color: var(--white);
-  background-color: var(--background-color-secondary);
-  border-color: var(--background-color-secondary);
-
   display: flex;
   flex-flow: row wrap;
   align-items: center;
-  gap: 1rem;
+  gap: .5rem;
 }
 
 
 .menu {
-  position: absolute;
+  position: fixed;
   display: flex;
   top: 0;
   left: 0;

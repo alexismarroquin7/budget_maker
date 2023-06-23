@@ -1,4 +1,4 @@
-import { ExpenseItem } from "../ExpenseItem";
+import { ExpenseCard } from "../ExpenseCard";
 
 import {
   KeyboardArrowDown as KeyboardArrowDownIcon
@@ -25,46 +25,49 @@ export const ToggleCategory = ({
 
   return (
     <div
-      className={styles.toggle_category}
+      className={`card`}
     >
       <div
-        className={styles.top_row}
+        className={styles.summary}
       >
+        <div
+          className={styles.summary_attrs}
+        >
+          <span
+            className={`${styles.percent}`}
+          >{getExpenseCategorySum(category).percent.toFixed(2)}{'%'}</span>
+          
+          <span
+            className={`${styles.amount}`}
+          >${getExpenseCategorySum(category).amount.toFixed(2)}</span>
+
+        </div>
+        <h2
+          className={styles.summary_title}
+        >
+          {category === "needs" && "Needs"}
+          {category === "wants" && "Wants"}
+          {category === "savings" && "Savings"}
+          
+          <span
+            className={`${styles.count}`}
+          >{getCount(category)}</span>  
+        </h2>
+
+
         <button
           className={`${styles.toggle_category_button} ${open ? styles.toggle_category_button_open : ""}`} 
           onClick={toggleOpen}
-        >
-          <span
-            className={styles.top_left_row}
-          >
-            <KeyboardArrowDownIcon
-              fontSize="inherit"
-              className={`${styles.toggle_category_arrow} ${open ? styles.toggle_category_arrow_open : ""}`} 
-            />
-            {category === "needs" && "Needs"}
-            {category === "wants" && "Wants"}
-            {category === "savings" && "Savings"}
-          
-            <span
-              className={`${styles.count}`}
-            >{getCount(category)}</span>  
-          </span>
-        
+        >  
+            {/* {open ? "Hide" : "Show"} List */}
+          <KeyboardArrowDownIcon
+            fontSize="inherit"
+            className={`${styles.toggle_category_arrow} ${open ? styles.toggle_category_arrow_open : ""}`} 
+          />
         </button>
         
       </div>
       
-      <div
-        className={styles.bottom_row}
-      >
-        <span
-          className={`${styles.percent}`}
-        >{getExpenseCategorySum(category).percent.toFixed(2)}{'%'}</span>
-        
-        <span
-          className={`${styles.amount}`}
-        >${getExpenseCategorySum(category).amount.toFixed(2)}</span>
-      </div>
       
       {/* LIST */}
       <div className={`${styles.expense_category_list} ${open ? "" : styles.expense_category_list_hidden}`}>
@@ -75,7 +78,7 @@ export const ToggleCategory = ({
         ) : (
           expenses
           .map(expense => {
-            return <ExpenseItem 
+            return <ExpenseCard
               key={expense.id}
               expense={expense}
               updateExpense={updateExpense}

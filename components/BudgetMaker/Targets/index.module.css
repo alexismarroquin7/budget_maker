@@ -1,14 +1,11 @@
-.budget_target_section {
+.summary {
+  width: 100%;
   display: flex;
-  flex-flow: column wrap;
-  padding: 1rem;
-  background-color: var(--background-color-secondary);
-  border-radius: var(--border-radius-primary);
-  gap: 1rem;
-  
+  flex-flow: row wrap;
+  justify-content: space-between;
 }
 
-.target_section_button {
+.button {
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;

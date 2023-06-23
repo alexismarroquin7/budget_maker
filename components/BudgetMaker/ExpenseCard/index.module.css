@@ -1,9 +1,8 @@
 .expense_item {
-  /* border-top: .2rem solid var(--background-color-terciary); */
-  display: flex;
-  flex-flow: row wrap;
   width: 100%;
-  padding: 1rem 0;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
 }
 
 .card {
@@ -12,18 +11,19 @@
   flex-flow: column wrap;
   align-items: center;
   justify-content: space-between;
-  
-  background-color: var(--background-color-terciary);
-  
+  border-top: .2rem solid var(--background-color-secondary);
   gap: 1rem;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  box-shadow: rgba(149, 157, 165, 0.2) 0 2px 0px;
-
-  
-  border-radius: var(--border-radius-primary);
-  padding: 1rem;
+  padding: 2rem 0;
 }
+.card_attr {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
 
+}
 
 .card_top {
   width: 100%;
@@ -38,14 +38,6 @@
   text-align: left;
 }
 
-.card_middle {
-  width: 100%;
-  display: flex;
-  flex-flow: column wrap;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 1rem;
-}
 
 .card_bottom {
   width: 100%;
@@ -55,22 +47,18 @@
   justify-content: space-between;
 }
 
-.card_middle_text {
-  /* width: 100%; */
+.card_attr_text {
   font-size: 2rem;
-  background-color: var(--black);
-  padding: .5rem 1rem;
-  border-radius: var(--border-radius-primary);
   font-weight: bold;
-  text-align: right;
 }
 
-.card_middle_text.percent {
-  background-color: var(--blue);
+.card_attr_text.percent {
+  color: var(--blue);
 }
 
-.card_middle_text.amount {
-  background-color: var(--green);
+.card_attr_text.amount {
+  color: var(--green);
+
 }
 
 .edit_icon {
@@ -91,10 +79,10 @@
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-  background-color: var(--background-color-terciary);
+  background-color: var(--background-color-secondary);
   border-radius: var(--border-radius-primary);
   padding: 1rem;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  box-shadow: var(--box-shadow-primary);
 }
 
 .form_top {

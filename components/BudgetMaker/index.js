@@ -1,12 +1,12 @@
 "use client";
 
 // components
-import { CategoriesAccordion } from "./CategoriesAccordion";
-import { Targets } from "./Targets";
-import { AnalysisSection } from "./AnalysisSection";
 import { Income } from "./Income";
+import { Targets } from "./Targets";
 import { FiltersMenu } from "./FiltersMenu";
 import { CreateExpenseMenu } from "./CreateExpenseMenu";
+import { CategoriesAccordion } from "./CategoriesAccordion";
+import { Analysis } from "./Analysis";
 
 // hooks
 import { useBudgetMaker } from "@/hooks";
@@ -56,7 +56,7 @@ export const BudgetMaker = () => {
         getExpenseCategorySum={getExpenseCategorySum}
       />
       
-      <AnalysisSection
+      <Analysis
         income={state.income}
         expenses={state.expenses}
         targets={state.targets}

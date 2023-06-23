@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./index.module.css";
 import {
   Add as AddIcon,
@@ -28,12 +28,16 @@ export const CreateExpenseMenu = ({createExpenses}) => {
     toggleOpen();
   }
 
+  useEffect(() => {
+    document.querySelector('body').style.overflow = open ? "hidden" : "auto";
+  }, [open]);
+
   return (
     <div
       className={styles.container}
     >
       <button
-        className={styles.menu_button}
+        className={`button--primary ${styles.menu_button}`}
         onClick={toggleOpen}
       >
         <AddIcon fontSize="inherit"/>

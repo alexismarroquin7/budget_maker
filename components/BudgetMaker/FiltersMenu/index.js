@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import {
   FilterList as FilterListIcon,
@@ -15,10 +15,14 @@ export const FiltersMenu = () => {
     toggleOpen();
   }
 
+  useEffect(() => {
+    document.querySelector('body').style.overflow = open ? "hidden" : "auto";
+  }, [open]);
+
   return (
     <div>
       <button
-        className={`${styles.filters_button}`}
+        className={`button ${styles.filters_button}`}
         onClick={handleClick}
       >
         <FilterListIcon fontSize="inherit"/>

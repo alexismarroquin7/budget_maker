@@ -10,14 +10,17 @@
   --blue: hsl(210, 50%, 60%);
   --yellow: hsl(45, 60%, 60%);
 
-  --white: #FFF;
+  --white: #fff;
   --black: #000;
   
-  --background-color-primary: #000;
-  --background-color-secondary: #3e3e3e;
+  --color-primary: #000;
+
+  --background-color-primary: #fff;
+  --background-color-secondary: #ededed;
   --background-color-terciary: #4f4e4e;
   
   --border-radius-primary: 1rem;
+  --box-shadow-primary: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 * {
@@ -30,37 +33,31 @@
 
 body {
   font-size: 1.6rem; /* 16 pixels */
-  background-color: var(--black);
-  color: var(--white);
+  background-color: var(--background-color-secondary);
+  color: var(--color-primary);
 }
 
 h1 {
   font-size: 2.8rem; /* 28 pixels */
-  color: var(--white);
 }
 
 h2 {
-  color: var(--white);
   font-size: 2.4rem; /* 24 pixels */
 }
 
 h3 {
-  color: var(--white);
   font-size: 2.0rem; /* 20 pixels */
 }
 
 h4 {
-  color: var(--white);
   font-size: 1.8rem; /* 18 pixels */
 }
 
 h5 {
-  color: var(--white);
   font-size: 1.6rem; /* 16 pixels */
 }
 
 h6 {
-  color: var(--white);
   font-size: 1.4rem; /* 14 pixels */
 }
 
@@ -71,7 +68,6 @@ button,
 label,
 input
 {
-  color: var(--white);
   font-size: 1.6rem; /* 16 pixels */
 }
 
@@ -83,7 +79,7 @@ input {
 
 
 span {
-  color: var(--white);
+  color: var(--color-primary);
   font-size: inherit;
 }
 
@@ -95,12 +91,38 @@ span {
   padding: .5rem 1rem;
   border-radius: 1rem;
 
-  font-size: 2rem;
   background-color: var(--background-color-primary);
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  
+  transition: all .2s;
+  font-size: 2rem;
+  color: black;
 }
 
 .icon_button_primary {
   background-color: var(--background-color-primary);
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.button,
+.button--primary {
+  color: var(--color-primary);
+  font-size: 2rem;
+  font-weight: bold;
+  padding: .5rem 1rem;
+  border-radius: var(--border-radius-primary);
+  background-color: var(--blue);
+  border: .2rem solid var(--background-color-secondary);
+}
+
+.card {
+  background-color: var(--background-color-primary);
+  color: var(--color-primary);
+  box-shadow: var(--box-shadow-primary);
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  padding: 2rem;
+  border-radius: var(--border-radius-primary);
 }

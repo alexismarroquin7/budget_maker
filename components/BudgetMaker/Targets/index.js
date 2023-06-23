@@ -3,13 +3,17 @@ import { useForm } from "@/hooks"
 
 import {
   Edit as EditIcon,
-  Check as CheckIcon
+  Check as CheckIcon,
+  KeyboardArrowDown
 } from "@mui/icons-material";
 
 import styles from "./index.module.css";
 
 export const Targets = ({ income, targets, updateTargets }) => {
   
+  const [open, setOpen] = useState(false);
+  const toggleOpen = () => setOpen(!open);
+
   const onSubmit = () => {
     updateTargets({
       needs: {
@@ -35,40 +39,33 @@ export const Targets = ({ income, targets, updateTargets }) => {
     },
     onSubmit
   );
-
-  const toggleOpen = (e) => {
-    const parent = e.currentTarget.parentElement
-    
-    const carrot = parent.querySelector(`.${styles.carrot}`);
-    carrot.classList.toggle(styles.carrot_open);
-    
-    const target_section_button = parent.querySelector(`.${styles.target_section_button}`);
-    target_section_button.classList.toggle(styles.target_section_button_open);
-
-    const details = parent.querySelector(`.${styles.details}`);
-    details.classList.toggle(styles.details_hidden)
-  }
-
+  
   const [editing, setEditing] = useState(false);
 
   return (
   <div
-    className={styles.budget_target_section}
+    className="card"
   >
-    
-    <button
-      onClick={toggleOpen}
-      className={styles.target_section_button}
+    <div
+      className={styles.summary}
     >
-      <span
-        className={styles.carrot}
-      >v</span>
-      Targets
-    </button>
+      <p>
+        Targets
+      </p>
+
+      <button
+        onClick={toggleOpen}
+        className={styles.button}
+      >
+        <KeyboardArrowDown
+          className={`${styles.carrot} ${open ? styles.carrot_open : ""}`}
+        />
+      </button>
+    </div>
 
     {/* HIDDEN BY DEFAULT */}
     <form
-      className={`${styles.details} ${styles.details_hidden}`}
+      className={`${styles.details} ${open ? "" : styles.details_hidden}`}
       onSubmit={handleSubmit}
     >
 

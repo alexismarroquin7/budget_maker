@@ -7,7 +7,7 @@ import {
   Close as CloseIcon
 } from '@mui/icons-material';
 
-import styles from "./ExpenseItem.module.css";
+import styles from "./index.module.css";
 
 const initialEditing = false;
 
@@ -28,7 +28,7 @@ function insertDecimal(string) {
 }
 
 
-export const ExpenseItem = ({ expense, income, updateExpense, deleteExpense }) => {
+export const ExpenseCard = ({ expense, income, updateExpense, deleteExpense }) => {
   const [editing, setEditing] = useState(initialEditing);
   const [formValues, setFormValues] = useState(initialFormValues);
 
@@ -214,13 +214,24 @@ export const ExpenseItem = ({ expense, income, updateExpense, deleteExpense }) =
           className={styles.card}
         >
           <div
+            className={styles.card_attr}
+          >
+            <p className={`${styles.card_attr_text} ${styles.percent}`}>{(((expense.amount / income) * 100)).toFixed(2)}%</p>
+            <p className={`${styles.card_attr_text} ${styles.amount}`}>${formatCurrency(expense.amount)}</p>   
+          </div>
+
+          <div
             className={styles.card_top}
           
           >
             <h3
               className={styles.card_name}
-            >{expense.name === "" ? "Untitled" : expense.name}</h3>  
-            
+            >{expense.name === "" ? "Untitled" : expense.name}</h3>    
+          </div>
+
+          <div
+            className={styles.card_bottom}
+          >
             <button
               className={"icon_button"}
               onClick={() => {
@@ -231,14 +242,6 @@ export const ExpenseItem = ({ expense, income, updateExpense, deleteExpense }) =
             </button>
           </div>
           
-          
-
-          <div
-            className={styles.card_middle}
-          >
-            <p className={`${styles.card_middle_text} ${styles.percent}`}>{(((expense.amount / income) * 100)).toFixed(2)}%</p>
-            <p className={`${styles.card_middle_text} ${styles.amount}`}>${formatCurrency(expense.amount)}</p>   
-          </div>
           
           
         </div>

@@ -5,10 +5,3 @@
   padding: 2rem;
   gap: 2rem;
 }
-
-.categories_container {
-  width: 100%;
-  border: 1px solid black;
-  display: flex;
-  flex-flow: row nowrap;
-}
