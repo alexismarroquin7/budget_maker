@@ -3,6 +3,16 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
+  align-items: center;
+}
+
+.summary_title {
+  font-weight: normal;
+  transition: all .2s;
+}
+
+.summary_title_open {
+  font-weight: bold;
 }
 
 .button {
@@ -29,10 +39,10 @@
 }
 
 .details {
+  width: 100%;
   display: flex;
   flex-flow: column wrap;
-  background-color: var(--background-color-terciary);
-  padding: 1rem;
+  padding: 1rem 0;
   border-radius: var(--border-radius-primary);
 }
 
@@ -59,7 +69,9 @@
   flex-flow: column wrap;
   align-items: center;
   justify-content: space-between;
-  padding: 2rem;
+  padding: 2rem 0;
+  gap: 2rem;
+  border-top: .2rem solid var(--background-color-secondary);
 }
 
 .target_row_title {
@@ -75,7 +87,17 @@
 }
 
 .target_row_percent_label {
-  display: flex;
-  flex-flow: column wrap;
-  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--blue);
+}
+
+.target_row_amount_label {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--green);
+}
+
+.range {
+  width: 100%;
 }

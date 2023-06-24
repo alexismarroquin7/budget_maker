@@ -37,7 +37,7 @@ export const CreateExpenseMenu = ({createExpenses}) => {
       className={styles.container}
     >
       <button
-        className={`button--primary ${styles.menu_button}`}
+        className={`button button--contained ${styles.menu_button}`}
         onClick={toggleOpen}
       >
         <AddIcon fontSize="inherit"/>
@@ -88,7 +88,7 @@ export const CreateExpenseMenu = ({createExpenses}) => {
               <span
                 className={styles.option_button_count}
               >
-                {count.needs}
+                {count.needs === 0 ? count.needs : `+ ${count.needs}`}
               </span>
             </button>
             <button
@@ -100,7 +100,7 @@ export const CreateExpenseMenu = ({createExpenses}) => {
               <span
                 className={styles.option_button_count}
               >
-                {count.wants}
+                {count.wants === 0 ? count.wants : `+ ${count.wants}`}
               </span>
             </button>
             <button
@@ -112,7 +112,7 @@ export const CreateExpenseMenu = ({createExpenses}) => {
               <span
                 className={styles.option_button_count}
               >
-                {count.savings}
+                {count.savings === 0 ? count.savings : `+ ${count.savings}`}
               </span>
             </button>
           </div>

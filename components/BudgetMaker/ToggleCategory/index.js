@@ -43,7 +43,7 @@ export const ToggleCategory = ({
 
         </div>
         <h2
-          className={styles.summary_title}
+          className={`${styles.summary_title} ${open ? styles.summary_title_open : ""}`}
         >
           {category === "needs" && "Needs"}
           {category === "wants" && "Wants"}

@@ -12,6 +12,11 @@
   flex-flow: row wrap;
   align-items: center;
   gap: 1rem;
+  font-weight: normal;
+}
+
+.summary_title_open {
+  font-weight: bold;
 }
 
 .summary_attrs {

@@ -1,13 +1,21 @@
-.section {
+.summary {
+  width: 100%;
   display: flex;
-  flex-flow: column wrap;
-  padding: 1rem;
-  background-color: var(--background-color-secondary);
-  border-radius: var(--border-radius-primary);
-  gap: 2rem;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.section_button {
+.summary_title {
+  font-weight: normal;
+  transition: all .2s;
+}
+
+.summary_title_open {
+  font-weight: bold;
+}
+
+.summary_button {
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
@@ -31,13 +39,45 @@
 }
 
 .details {
+  width: 100%;
   display: flex;
   flex-flow: column wrap;
-  background-color: var(--background-color-terciary);  
-  padding: 2rem;
-  border-radius: var(--border-radius-primary);
+  gap: 1rem;
 }
 
 .details_hidden {
   display: none;
+}
+
+.card {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem 0;
+}
+
+.card_title {
+  width: 100%;
+  text-align: left;
+}
+
+.card_tile {
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  background-color: var(--background-color-secondary);
+  padding: 1rem;
+  border-radius: var(--border-radius-primary);
+}
+
+.card_tile_title {
+  width: 100%;
+  text-align: left;
+}
+
+.number {
+  font-size: 2rem;
+  font-weight: bold;
 }

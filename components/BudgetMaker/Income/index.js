@@ -38,11 +38,13 @@ export const Income = ({ setIncome, income }) => {
       <div
         className={styles.card_top_left}
       >
-        <p>
+        <p
+          className={`${styles.card_label} ${open ? styles.card_label_open : ""}`}
+        >
           Income
         </p>
         <p
-          className={styles.card_bottom_text}
+          className={`${styles.card_amount} ${open ? styles.card_amount_open : ""}`}
         >${formatCurrency(income)}</p>
       </div>
 
@@ -73,20 +75,24 @@ export const Income = ({ setIncome, income }) => {
           step="0.1"
         />
         
-        <button
-          className={styles.form_button}
-          type="submit"
-        >Apply</button>
-        <button
-          className={`${styles.form_button} ${styles.secondary}`}
-          type="button"
-          onClick={(e) => {
-            toggleOpen();
-            setFormValues({
-              income 
-            })
-          }}
-        >Cancel</button>
+        <div
+          className={styles.form_actions}
+        >
+          <button
+            className={`button button--contained ${styles.form_button}`}
+            type="submit"
+            >Apply</button>
+          <button
+            className={`button button--outlined ${styles.form_button}`}
+            type="button"
+            onClick={(e) => {
+              toggleOpen();
+              setFormValues({
+                income 
+              })
+            }}
+          >Cancel</button>
+        </div>
 
       </form>
     )}

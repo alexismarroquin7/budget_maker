@@ -8,6 +8,7 @@ import {
 } from "@mui/icons-material";
 
 import styles from "./index.module.css";
+import { formatCurrency } from "@/utils";
 
 export const Targets = ({ income, targets, updateTargets }) => {
   
@@ -49,9 +50,11 @@ export const Targets = ({ income, targets, updateTargets }) => {
     <div
       className={styles.summary}
     >
-      <p>
+      <h2
+        className={`${styles.summary_title} ${open ? styles.summary_title_open : ""}`}
+      >
         Targets
-      </p>
+      </h2>
 
       <button
         onClick={toggleOpen}
@@ -97,6 +100,7 @@ export const Targets = ({ income, targets, updateTargets }) => {
           )}
       </div>
 
+
       <div
         className={styles.target_row}
       >
@@ -107,23 +111,27 @@ export const Targets = ({ income, targets, updateTargets }) => {
         <div
           className={styles.target_row_bottom}
         >
-          <p>${income * (formValues.needs_percent/100)}</p>
           <label
             className={styles.target_row_percent_label}
           >
             {formValues.needs_percent}%
-            <input
-              type="range" 
-              name="needs_percent"
-              value={formValues.needs_percent}
-              onChange={handleChange}
-              step={5}
-              min={0}
-              max={100}
-              disabled={!editing}
-            />
           </label>
+          <p
+            className={styles.target_row_amount_label}
+          >${formatCurrency(income * (formValues.needs_percent/100))}</p>
         </div>
+        
+        <input
+          type="range" 
+          className={styles.range}
+          name="needs_percent"
+          value={formValues.needs_percent}
+          onChange={handleChange}
+          step={5}
+          min={0}
+          max={100}
+          disabled={!editing}
+        />
       </div>
       
       <div
@@ -132,27 +140,31 @@ export const Targets = ({ income, targets, updateTargets }) => {
         <h3
           className={styles.target_row_title}
         >Wants</h3>
-         <div
+
+        <div
           className={styles.target_row_bottom}
         >
-          <p>${income * (formValues.wants_percent/100)}</p>
           <label
             className={styles.target_row_percent_label}
           >
             {formValues.wants_percent}%
-            <input
-              type="range" 
-              name="wants_percent"
-              value={formValues.wants_percent}
-              onChange={handleChange}
-              step={5}
-              min={0}
-              max={100}
-              disabled={!editing}
-            />
           </label>
+          <p
+            className={styles.target_row_amount_label}
+          >${formatCurrency(income * (formValues.wants_percent/100))}</p>
         </div>
-
+        
+        <input
+          type="range" 
+          className={styles.range}
+          name="wants_percent"
+          value={formValues.wants_percent}
+          onChange={handleChange}
+          step={5}
+          min={0}
+          max={100}
+          disabled={!editing}
+        />
       </div>
       
       <div
@@ -165,24 +177,27 @@ export const Targets = ({ income, targets, updateTargets }) => {
         <div
           className={styles.target_row_bottom}
         >
-          <p>${income * (formValues.savings_percent/100)}</p>
           <label
             className={styles.target_row_percent_label}
           >
             {formValues.savings_percent}%
-            <input
-              type="range" 
-              name="savings_percent"
-              value={formValues.savings_percent}
-              onChange={handleChange}
-              step={5}
-              min={0}
-              max={100}
-              disabled={!editing}
-            />
           </label>
+          <p
+            className={styles.target_row_amount_label}
+          >${formatCurrency(income * (formValues.savings_percent/100))}</p>
         </div>
-
+        
+        <input
+          type="range" 
+          className={styles.range}
+          name="savings_percent"
+          value={formValues.savings_percent}
+          onChange={handleChange}
+          step={5}
+          min={0}
+          max={100}
+          disabled={!editing}
+        />
       </div>
 
     </form>

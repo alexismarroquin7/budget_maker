@@ -75,6 +75,7 @@ input {
   background-color: var(--background-color-secondary);
   border: 0;
   border-bottom: .2rem solid var(--background-color-secondary);
+  border-radius: var(--border-radius-primary);
 }
 
 
@@ -105,14 +106,25 @@ span {
 }
 
 .button,
-.button--primary {
-  color: var(--color-primary);
+.button--text {
   font-size: 2rem;
   font-weight: bold;
   padding: .5rem 1rem;
   border-radius: var(--border-radius-primary);
-  background-color: var(--blue);
+  background-color: transparent;
+  color: var(--blue);
   border: .2rem solid var(--background-color-secondary);
+  border-color: transparent;
+}
+.button--contained {
+  border-color: var(--blue);
+  background-color: var(--blue);
+  color: var(--white);
+}
+.button--outlined {
+  border-color: var(--blue);
+  color: var(--blue);
+  background-color: transparent;
 }
 
 .card {

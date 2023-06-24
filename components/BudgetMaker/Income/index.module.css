@@ -14,6 +14,25 @@
   align-items: flex-start;
 }
 
+.card_label,
+.card_amount {
+  transition: all .2s;
+}
+
+.card_label_open {
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.card_amount {
+  font-weight: bold;
+  font-size: 2.4rem;
+}
+
+.card_amount_open {
+  display: none;
+}
+
 .card_button {
   background-color: transparent;
   border: 0;
@@ -50,7 +69,8 @@
   display: flex;
   flex-flow: column wrap;
   align-items: center;
-  gap: 1rem;
+  gap: 2rem;
+  padding: 1rem 0;
 }
 
 .label {
@@ -69,19 +89,17 @@
   border: 0;
   border-bottom: .2rem solid #eee;
   padding: 1rem;
+  
+}
+
+.form_actions {
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  gap: 1rem;
 }
 
 .form_button {
   width: 100%;
-  font-size: 2rem;
-  padding: 1rem 2rem;
-  background-color: var(--background-color-primary);
-  border: .2rem solid var(--background-color-primary);
-  border-radius: var(--border-radius-primary);
-  font-weight: bold;
-}
-
-.form_button.secondary {
-  background-color: transparent;
-  color: var(--background-color-primary)
 }

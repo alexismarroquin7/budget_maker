@@ -22,7 +22,7 @@ export const FiltersMenu = () => {
   return (
     <div>
       <button
-        className={`button ${styles.filters_button}`}
+        className={`button button--outlined ${styles.filters_button}`}
         onClick={handleClick}
       >
         <FilterListIcon fontSize="inherit"/>
@@ -94,7 +94,15 @@ export const FiltersMenu = () => {
             </select>
           
           </label>
-        
+          
+          <div>
+            <button
+              className="button button--contained"
+            >Apply</button>
+            <button
+              className="button button--outlined"
+            >Cancel</button>
+          </div>
         </div>
 
       </div>
