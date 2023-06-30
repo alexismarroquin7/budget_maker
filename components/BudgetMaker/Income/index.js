@@ -23,7 +23,10 @@ export const Income = ({ setIncome, income }) => {
 
   const { formValues, handleChange, setFormValues } = useForm({income: income ? income : null});
 
-  const toggleOpen = () => {
+  const toggleOpen = (e) => {
+    // if(!open) {
+    //   e.currentTarget.parentNode.parentNode.querySelector('input[name="income"]').focus();
+    // }
     setOpen(!open);
   }
 
@@ -59,43 +62,42 @@ export const Income = ({ setIncome, income }) => {
       </button>
     </div>
     
-    {open && (
-      <form
-      onSubmit={handleSubmit}
-      className={styles.form}
+    <form
+    onSubmit={handleSubmit}
+    className={`${styles.form} ${open ? "" : styles.form_hidden}`}
+    >
+      <input
+        className={styles.input}
+        id="income"
+        type="number"
+        name="income"
+        value={formValues.income}
+        onChange={handleChange}
+        min={0}
+        step="0.1"
+      />
+      
+      <div
+        className={styles.form_actions}
       >
-        <input
-          className={styles.input}
-          id="income"
-          type="number"
-          name="income"
-          value={formValues.income}
-          onChange={handleChange}
-          min={0}
-          step="0.1"
-        />
-        
-        <div
-          className={styles.form_actions}
-        >
-          <button
-            className={`button button--contained ${styles.form_button}`}
-            type="submit"
-            >Apply</button>
-          <button
-            className={`button button--outlined ${styles.form_button}`}
-            type="button"
-            onClick={(e) => {
-              toggleOpen();
-              setFormValues({
-                income 
-              })
-            }}
-          >Cancel</button>
-        </div>
+        <button
+          className={`button button--contained ${styles.form_button}`}
+          type="submit"
+          >Apply</button>
+        <button
+          className={`button button--outlined ${styles.form_button}`}
+          type="button"
+          onClick={(e) => {
+            toggleOpen();
+            setFormValues({
+              income 
+            })
+          }}
+        >Cancel</button>
+      </div>
 
-      </form>
-    )}
+    </form>
+
   </div>
   )
 }

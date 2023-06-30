@@ -107,15 +107,24 @@ span {
 
 .button,
 .button--text {
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: bold;
   padding: .5rem 1rem;
+  
   border-radius: var(--border-radius-primary);
+  border-radius: 4rem;
+  
   background-color: transparent;
   color: var(--blue);
   border: .2rem solid var(--background-color-secondary);
   border-color: transparent;
+  display: flex;
+  flex-wrap: row wrap;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
 }
+
 .button--contained {
   border-color: var(--blue);
   background-color: var(--blue);
@@ -137,4 +146,5 @@ span {
   align-items: center;
   padding: 2rem;
   border-radius: var(--border-radius-primary);
+  gap: 2rem;
 }

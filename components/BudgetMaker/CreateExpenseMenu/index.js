@@ -121,14 +121,14 @@ export const CreateExpenseMenu = ({createExpenses}) => {
             className={styles.menu_card_actions}
           >
             <button
-              className={`${styles.menu_card_action_button}`}
+              className={`button button--contained ${styles.menu_card_action_button}`}
 
               name="savings"
               onClick={handleCreateExpenses}
             >Create</button>
             
             <button
-              className={`${styles.menu_card_action_button} ${styles.secondary}`}
+              className={`button button--outlined ${styles.menu_card_action_button}`}
               name="savings"
               onClick={handleCreateExpenses}
             >Cancel</button>

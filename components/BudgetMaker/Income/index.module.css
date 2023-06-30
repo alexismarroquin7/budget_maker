@@ -70,7 +70,11 @@
   flex-flow: column wrap;
   align-items: center;
   gap: 2rem;
-  padding: 1rem 0;
+  padding: 2rem 0 0 0;
+}
+
+.form_hidden {
+  display: none;
 }
 
 .label {
@@ -88,7 +92,7 @@
   font-size: 2rem;
   border: 0;
   border-bottom: .2rem solid #eee;
-  padding: 1rem;
+  padding: 2rem;
   
 }
 

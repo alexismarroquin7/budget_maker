@@ -73,7 +73,6 @@
   gap: 1rem;
 }
 
-.menu_card_action_button,
 .option_button {
   width: 100%;
   padding: 1rem;
@@ -86,25 +85,13 @@
   gap: 1rem;
 }
 
+.menu_card_action_button {
+  width: 100%;
+}
+
 .option_button_count {
   background-color: var(--red);
   padding: .5rem 1rem;
   border-radius: var(--border-radius-primary);
   color: var(--white);
 }
-
-.menu_card_action_button {
-  background-color: var(--green);
-  display: flex;
-  flex-flow: column wrap;
-  align-items: center;
-  border: .2rem solid var(--green);
-  background-color: var(--green);
-}
-
-.menu_card_action_button.secondary {
-  color: var(--red);
-  background-color: transparent;
-  border-color: var(--red);
-}
-

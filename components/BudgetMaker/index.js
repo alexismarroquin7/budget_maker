@@ -43,11 +43,14 @@ export const BudgetMaker = () => {
         updateTargets={updateTargets}
       />
 
-      <FiltersMenu />
-      
-      <CreateExpenseMenu
-        createExpenses={createExpenses}
-      />
+      <div
+        className={styles.actions}
+      >
+        <CreateExpenseMenu
+          createExpenses={createExpenses}
+        />
+        <FiltersMenu />
+      </div>
       
       <CategoriesAccordion 
         state={state}
